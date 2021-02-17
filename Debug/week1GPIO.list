@@ -400,11 +400,11 @@ int main(void)
   int CountLab1= 0;
  80004fc:	2300      	movs	r3, #0
  80004fe:	60bb      	str	r3, [r7, #8]
-  {
 
 
     /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
+	  //lab 1.1
 	  if(HAL_GetTick() - ButtonTimeStamp >= 100)//ms
  8000500:	f000 fab2 	bl	8000a68 <HAL_GetTick>
  8000504:	4602      	mov	r2, r0
@@ -492,6 +492,9 @@ int main(void)
  8000570:	793b      	ldrb	r3, [r7, #4]
  8000572:	717b      	strb	r3, [r7, #5]
 	  }
+	//lab1.2
+
+
 	//Run LED
 	if (HAL_GetTick() - TimeStamp >= LED1_HalfPeriod )
  8000574:	f000 fa78 	bl	8000a68 <HAL_GetTick>

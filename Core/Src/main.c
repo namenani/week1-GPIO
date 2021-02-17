@@ -104,6 +104,7 @@ int main(void)
 
     /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
+	  //lab 1.1
 	  if(HAL_GetTick() - ButtonTimeStamp >= 100)//ms
 	  {
 
@@ -139,6 +140,9 @@ int main(void)
 	}
 	SwitchState[1] = SwitchState[0];
 	  }
+	//lab1.2
+
+
 	//Run LED
 	if (HAL_GetTick() - TimeStamp >= LED1_HalfPeriod )
 	{
