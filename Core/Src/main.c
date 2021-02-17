@@ -95,6 +95,7 @@ int main(void)
   uint16_t LED1_HalfPeriod = 500 ; //1Hz
   uint16_t LED3_TimeRelay = 1000 ; // 0.5 s
   uint32_t TimeStamp = 0 ;
+  uint32_t TimeStamp2 = 0 ;
   uint32_t ButtonTimeStamp = 0 ;
   uint32_t ButtonTimeStamp1 = 0 ;
   int CountLab1= 0;
@@ -194,16 +195,16 @@ int main(void)
 	}
 	SwitchState2[1] = SwitchState2[0];
 	//RunLED1.3
-	if (HAL_GetTick() - TimeStamp >= LED1_HalfPeriod )
+	if (HAL_GetTick() - TimeStamp2 >= LED3_TimeRelay )
 		{
-			TimeStamp = HAL_GetTick();
-			if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_9) == GPIO_PIN_SET)
+			TimeStamp2 = HAL_GetTick();
+			if(LED3_TimeRelay == 1000)
 			{
-				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9,GPIO_PIN_RESET);
+
 			}
 			else
 			{
-				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9,GPIO_PIN_SET);
+
 			}
 		}
 
