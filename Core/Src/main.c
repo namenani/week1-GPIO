@@ -177,6 +177,12 @@ int main(void)
 		}
 	}
 	//lab1.3
+	SwitchState2[0] = HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_5);
+	if(SwitchState2[1] == GPIO_PIN_SET
+		  			&& SwitchState2[0] == GPIO_PIN_RESET)
+	{
+
+	}
 
   }
   /* USER CODE END 3 */
