@@ -183,8 +183,30 @@ int main(void)
 	if(SwitchState2[1] == GPIO_PIN_SET
 		  			&& SwitchState2[0] == GPIO_PIN_RESET)
 	{
-
+		 if(LED3_TimeRelay == 1000)
+				  		{
+			 LED3_TimeRelay = 334;
+				  		}
+				  else
+				  		{
+					  LED3_TimeRelay = 1000;
+				  		}
 	}
+	SwitchState2[1] = SwitchState2[0];
+	//RunLED1.3
+	if (HAL_GetTick() - TimeStamp >= LED1_HalfPeriod )
+		{
+			TimeStamp = HAL_GetTick();
+			if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_9) == GPIO_PIN_SET)
+			{
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9,GPIO_PIN_RESET);
+			}
+			else
+			{
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9,GPIO_PIN_SET);
+			}
+		}
+
 
   }
   /* USER CODE END 3 */
