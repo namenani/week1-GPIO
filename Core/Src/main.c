@@ -94,6 +94,7 @@ int main(void)
   uint16_t LED1_HalfPeriod = 500 ; //1Hz
   uint32_t TimeStamp = 0 ;
   uint32_t ButtonTimeStamp = 0 ;
+  uint32_t ButtonTimeStamp1 = 0 ;
   int CountLab1= 0;
   /* USER CODE END 2 */
 
@@ -143,13 +144,25 @@ int main(void)
 	SwitchState[1] = SwitchState[0];
 	  }
 	//lab1.2
+	  if(HAL_GetTick() - ButtonTimeStamp1 >= 100)//ms
+	  	  {
+
+	  	ButtonTimeStamp1 = HAL_GetTick();
 	  SwitchState1[0] = HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_3);
 	  if(SwitchState1[1] == GPIO_PIN_SET
 	  			&& SwitchState1[0] == GPIO_PIN_RESET)
 	  {
-
+		  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_7) == GPIO_PIN_SET)
+		  		{
+		  			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7,GPIO_PIN_RESET);
+		  		}
+		  		else
+		  		{
+		  			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7,GPIO_PIN_SET);
+		  		}
 	  }
-
+	  SwitchState1[1] = SwitchState1[0];
+	  	  }
 	//Run LED
 	if (HAL_GetTick() - TimeStamp >= LED1_HalfPeriod )
 	{
