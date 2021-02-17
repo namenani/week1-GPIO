@@ -93,10 +93,12 @@ int main(void)
   GPIO_PinState SwitchState1[2];
   GPIO_PinState SwitchState2[2];
   uint16_t LED1_HalfPeriod = 500 ; //1Hz
+  uint16_t LED3_TimeRelay = 1000 ; // 0.5 s
   uint32_t TimeStamp = 0 ;
   uint32_t ButtonTimeStamp = 0 ;
   uint32_t ButtonTimeStamp1 = 0 ;
   int CountLab1= 0;
+  int CountLab2= 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
