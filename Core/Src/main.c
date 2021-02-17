@@ -90,6 +90,7 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   GPIO_PinState SwitchState[2];//NOW,LAST
+  GPIO_PinState SwitchState1[2];
   uint16_t LED1_HalfPeriod = 500 ; //1Hz
   uint32_t TimeStamp = 0 ;
   uint32_t ButtonTimeStamp = 0 ;
