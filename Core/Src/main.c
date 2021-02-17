@@ -216,7 +216,16 @@ int main(void)
 			}
 			else if(CountTime == 2)
 			{
-
+				if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6) == GPIO_PIN_SET)
+						  		{
+									LED3_TimeRelay = 500;
+									HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6,GPIO_PIN_RESET);
+						  		}
+								else if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6) == GPIO_PIN_RESET)
+						  		{
+									LED3_TimeRelay = 1500;
+						  			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6,GPIO_PIN_SET);
+						  		}
 			}
 		}
 
