@@ -201,7 +201,7 @@ int main(void)
 	if (HAL_GetTick() - TimeStamp2 >= LED3_TimeRelay )
 		{
 			TimeStamp2 = HAL_GetTick();
-			if(CountTime == 1)
+			if(CountTime == 1) //on 0.5 off 1.5
 			{
 				if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6) == GPIO_PIN_SET)
 		  		{
@@ -214,7 +214,7 @@ int main(void)
 		  			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6,GPIO_PIN_SET);
 		  		}
 			}
-			else if(CountTime == 2)
+			else if(CountTime == 2)//on 1.5 off 0.5
 			{
 				if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_6) == GPIO_PIN_SET)
 						  		{

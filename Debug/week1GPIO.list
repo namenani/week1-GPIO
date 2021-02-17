@@ -652,7 +652,7 @@ int main(void)
 			TimeStamp2 = HAL_GetTick();
  8000660:	f000 fada 	bl	8000c18 <HAL_GetTick>
  8000664:	61f8      	str	r0, [r7, #28]
-			if(CountTime == 1)
+			if(CountTime == 1) //on 0.5 off 1.5
  8000666:	693b      	ldr	r3, [r7, #16]
  8000668:	2b01      	cmp	r3, #1
  800066a:	d120      	bne.n	80006ae <main+0x1d6>
@@ -694,7 +694,7 @@ int main(void)
  80006ac:	e72f      	b.n	800050e <main+0x36>
 		  		}
 			}
-			else if(CountTime == 2)
+			else if(CountTime == 2)//on 1.5 off 0.5
  80006ae:	693b      	ldr	r3, [r7, #16]
  80006b0:	2b02      	cmp	r3, #2
  80006b2:	f47f af2c 	bne.w	800050e <main+0x36>
