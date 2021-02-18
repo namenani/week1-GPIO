@@ -119,16 +119,16 @@ int main(void) {
 				//Change Half Period of LED 1
 
 				if (CountLab1 == 0) {
-					LED1_HalfPeriod = 1000;
+					LED1_HalfPeriod = 1000; //0.5 Hz
 					CountLab1 = 1;
 				} else if (CountLab1 == 1) {
-					LED1_HalfPeriod = 500;
+					LED1_HalfPeriod = 500; //1 Hz
 					CountLab1 = 2;
 				} else if (CountLab1 == 2) {
-					LED1_HalfPeriod = 250;
+					LED1_HalfPeriod = 250; //2 Hz
 					CountLab1 = 3;
 				} else if (CountLab1 == 3) {
-					LED1_HalfPeriod = 167;
+					LED1_HalfPeriod = 167; // 3Hz
 					CountLab1 = 1;
 				}
 
@@ -148,6 +148,7 @@ int main(void) {
 			}
 		}
 		SwitchState1[1] = SwitchState1[0];
+
 
 		//Run LED
 		if (HAL_GetTick() - TimeStamp >= LED1_HalfPeriod) {
